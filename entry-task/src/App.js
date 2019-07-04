@@ -1,8 +1,50 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import logo from '../public/y-logo-white.png';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    window.onscroll = function() {myFunction()};
+      
+    var notif = document.getElementById("notification");
+    var sticky = notif.offsetTop;
+      
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        notif.classList.add("sticky")
+      } else {
+         notif.classList.remove("sticky");
+      }
+    }
+
+    $(document).ready(function(){
+      $(".notification-button").click(function(){
+        $(".notification-panel").slideUp(1000);
+      });
+      // localStorage.setItem("hide","false");
+      // $(".newsletter-close").click(function(){
+      //   $(".newsletter-panel").slideToggle("slow");
+      //   localStorage.setItem("hide","true");
+      // });
+    });
+    
+    // $(window).scroll(function() {   
+    //   var session = this.localStorage.getItem("hide");
+    //   if(($(window).scrollTop() >= $(window).height() / 3) && (session == "true")) {
+    //     setTimeout(function() {
+    //      $(".newsletter-panel").css("display", "block");
+    //     localStorage.setItem("hide","false");
+    //     }, 30000);
+    //   } else if(($(window).scrollTop() >= $(window).height() / 3) && (session == "false")) {
+    //     $(".newsletter-panel").slideDown(1000);
+    //   }
+    // });
+  }
   render() {
     return (
       <div>
