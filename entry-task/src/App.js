@@ -6,6 +6,18 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className="notification-panel" id="notification">
+          <center>
+            <div className="notification-content">
+              <p className="notification-desc">
+                  By accessing and using this website, you acknowledge that you have read and
+                  understand our <a href="#" className="notification-link">Cookie Policy</a>, <a href="#" className="notification-link">Privacy Policy</a>, and our <a href="#" className="notification-link">Terms of Service</a>.
+              </p>
+              <button className="notification-button">Got it</button>
+            </div>
+          </center>
+        </div>
+
         <div className="hero-shot">
           <div className="layer">
             <div>
