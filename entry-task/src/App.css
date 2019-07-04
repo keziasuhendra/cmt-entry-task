@@ -294,6 +294,49 @@ p {
 }
 
 @media only screen and (max-width: 639px) {
+  .notification-panel {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: auto;
+    position: static;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+ 
+  .notification-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .notification-desc {
+    width: 100%;
+    box-sizing : border-box;
+  }
+ 
+  .notification-button {
+   box-sizing : border-box;
+   background-color: #007bc1;
+   margin-top: 10px;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   height: auto;
+   width: 100px;
+  }
+
   .newsletter-panel {
     background-color: rgba(0, 123, 193, 0.9);
     width: auto;
