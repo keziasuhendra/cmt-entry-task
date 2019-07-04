@@ -175,7 +175,7 @@ p {
   left: 0;
   bottom: 0;
   padding: 10px;
-  display: none;
+  /* display: none; */
 }
 
 .newsletter-close {
@@ -245,4 +245,45 @@ p {
       background-color: #f2f2f2;
       padding: 10px;
     }
+}
+
+@media only screen and (max-width: 639px) {
+  .newsletter-panel {
+    background-color: rgba(0, 123, 193, 0.9);
+    width: auto;
+    height: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+  }
+
+  .newsletter-form {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: block;
+  }
+  
+  .newsletter-form input[type=email] {
+    box-sizing : border-box;
+    margin: auto;
+    border: none;
+    background: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .newsletter-button {
+    box-sizing : border-box;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    color: white;
+    background-color: #cc6600;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+  }
 }
