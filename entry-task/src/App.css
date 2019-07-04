@@ -1,24 +1,107 @@
-.App {
+h1 {
+  padding-bottom: 4px;
+  margin: 0px;
+  font-size: 32px;
+}
+
+h2 {
+  padding-top: 0px;
+  padding-bottom: 7px;
+  margin: 0px 20px;
+  font-size: 28px;
+}
+
+h3 {
+  padding: 10px 0px;
+  margin: 0px;
+}
+
+h4 {
+  padding: 4px;
+  margin: 0px 20px;
+  line-height: 1.5em;
+  font-size: 20px;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.bottom-margin {
+  height: 20vh;
+  width: 100%;
+}
+
+.button {
+  background-color: white;
+  border: none;
+  color: #004a75;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  max-width: 180px;
+  font-size: 1rem;
+  display: block;
+  margin: auto;
+  padding: 12px 12px;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+ .button-contact {
+   border: 2px solid #ffffff;
+   color: white;
+   background-color: transparent;
+ }
+
+ .button-contact:hover {
+   background-color: white;
+   color: #004a75;
+ }
+ 
+ .hero-shot {
+  background-image: url("../public/work-desk__dustin-lee.jpg");
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  left: 0;
+  right: 0;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.layer {
+  background-color: rgba(0, 89, 141, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  margin: 25px;
+}
+
+.hello {
+  padding-top: 10vh;
+  margin: 0px 20px;
   color: white;
+  font-weight: normal;
+  text-align: center
 }
 
-.App-intro {
-  font-size: large;
+.consult {
+  color: white;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.shot {
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 30px;
 }
