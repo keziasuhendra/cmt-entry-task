@@ -155,6 +155,17 @@ p {
   float: right;
 }
 
+.footer {
+  background-color: #004a75;
+  padding: 30px;
+}
+
+.copyright {
+  color: white;
+  text-align: center;
+  font-weight: normal;
+}
+
 @media only screen and (min-width: 961px) {
 	.grid-container {
       display: grid;

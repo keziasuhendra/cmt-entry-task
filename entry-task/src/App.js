@@ -81,6 +81,10 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <div class="footer">
+          <h4 class="copyright">&copy; 2019 Kezia Suhendra. All rights reserved.</h4>
+        </div>
         
       </div>
     );
