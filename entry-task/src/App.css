@@ -166,6 +166,65 @@ p {
   font-weight: normal;
 }
 
+.newsletter-panel {
+  background-color: rgba(0, 123, 193, 0.9);
+  max-width: 640px;
+  width: auto;
+  height: auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  display: none;
+}
+
+.newsletter-close {
+  color: white;
+  background-color: transparent;
+  border: none;
+  float: right;
+  font-size: 20px;
+}
+
+.newsletter-title {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  color: white;
+}
+
+.newsletter-desc {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+}
+
+.newsletter-form {
+  display: inline-block;
+  max-width: 640px;
+}
+
+.newsletter-form input[type=email] {
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  width: 400px;
+  border: none;
+  background: white;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.newsletter-button {
+  width: 150px;
+  height: auto;
+  color: white;
+  background-color: #cc6600;
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+}
+
 @media only screen and (min-width: 961px) {
 	.grid-container {
       display: grid;

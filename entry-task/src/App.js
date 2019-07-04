@@ -22,57 +22,57 @@ class App extends Component {
           </div>
         </div>
 
-        <div class="panel">
-          <h1 class="panel-title">How Can I Help You?</h1>
-          <h4 class="panel-desc">
+        <div className="panel">
+          <h1 className="panel-title">How Can I Help You?</h1>
+          <h4 className="panel-desc">
             Our work then targeted, best practices outcomes social innovation synergy. <br/>
             Venture philanthropy, revolutionary inclusive policymaker relief. User-centered <br/>
             program areas scale.
           </h4>
 
-          <div class="grid-container">
-            <div class="grid-item">
-              <h3 class="grid-item-title">Consult <i class="fa fa-comments-o icon"></i></h3>
+          <div className="grid-container">
+            <div className="grid-item">
+              <h3 className="grid-item-title">Consult <i className="fa fa-comments-o icon"></i></h3>
               <p>
                 Co-create, design thinking; strengthen infrastructure resist granular.
                 Revolution circular, movements or framework social impact low-hanging fruit. 
                 Save the world compelling revolutionary progress.
               </p>
             </div>
-            <div class="grid-item">
-              <h3 class="grid-item-title">Design <i class="fa fa-paint-brush icon"></i></h3>
+            <div className="grid-item">
+              <h3 className="grid-item-title">Design <i className="fa fa-paint-brush icon"></i></h3>
               <p>
                 Policymaker collaborates collective impact humanitarian shared value
                 vocabulary inspire issue outcomes agile. Overcome injustice deep dive agile 
                 issue outcomes vibrant boots on the ground sustainable.
               </p>
             </div>
-            <div class="grid-item">
-              <h3 class="grid-item-title">Develop <i class="fa fa-cubes icon"></i></h3>
+            <div className="grid-item">
+              <h3 className="grid-item-title">Develop <i className="fa fa-cubes icon"></i></h3>
               <p>
                 Revolutionary circular, movements a or impact framework social impact low-
                 hanging. Save the compelling revolutionary inspire progress. Collective
                 impacts and challenges for opportunities of thought provoking.
               </p>
             </div>
-            <div class="grid-item">
-              <h3 class="grid-item-title">Marketing <i class="fa fa-bullhorn icon"></i></h3>
+            <div className="grid-item">
+              <h3 className="grid-item-title">Marketing <i className="fa fa-bullhorn icon"></i></h3>
               <p>
                 Peaceful; vibrant paradigm, collaborative cities. Shared vocabulary agile,
                 replicable, effective altruism youth. Mobilize commitment to overcome
                 injustice resilient, uplift social transparent effective.
               </p>
             </div>
-            <div class="grid-item">
-              <h3 class="grid-item-title">Manage <i class="fa fa-tasks icon"></i></h3>
+            <div className="grid-item">
+              <h3 className="grid-item-title">Manage <i className="fa fa-tasks icon"></i></h3>
               <p>
                 Change-makers innovation or shared unit of analysis. Overcome injustice
                 outcomes strategize vibrant boots on the ground sustainable. Optimism,
                 effective altruism invest optimism corporate social.
               </p>
             </div>
-            <div class="grid-item">
-              <h3 class="grid-item-title">Evolve <i class="fa fa-line-chart icon"></i></h3>
+            <div className="grid-item">
+              <h3 className="grid-item-title">Evolve <i className="fa fa-line-chart icon"></i></h3>
               <p>
                 Activate catalyze and impact contextualize humanitarian. Unit of analysis
                 overcome injustice storytelling altruism. Thought leadership mass 
@@ -82,10 +82,26 @@ class App extends Component {
           </div>
         </div>
 
-        <div class="footer">
-          <h4 class="copyright">&copy; 2019 Kezia Suhendra. All rights reserved.</h4>
+        <div className="newsletter-panel">
+          <button className="newsletter-close">&times;</button>
+          <h1 className="newsletter-title">Get latest updates in web technologies</h1>
+          <p className="newsletter-desc">
+            I write articles related to web technologies, such as design trends, development
+            tools, UI/UX case studies and reviews, and more. Sign up to my newsletter to get
+            them all.
+          </p>
+          <form className="newsletter-form" action="">
+            <input type="email" name="email" placeholder="Email address" required/>
+            <button className="newsletter-button">
+              Count me in!
+            </button>
+          </form>
         </div>
-        
+
+        <div className="footer">
+          <h4 className="copyright">&copy; 2019 Kezia Suhendra. All rights reserved.</h4>
+        </div>
+
       </div>
     );
   }
