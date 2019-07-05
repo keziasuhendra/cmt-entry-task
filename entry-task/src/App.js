@@ -26,21 +26,13 @@ class App extends Component {
     var newsletter = document.getElementById("newsletter");
     newsletter.classList.remove("open-newsletter");
     newsletter.classList.add("close-newsletter");
-    // this.setNewsletterDisplay('none');
     var currentTime = Date.now();
     localStorage.setItem("current-time", currentTime);
-    // setTimeout(() => this.setNewsletterDisplay('none'), 6000);
     setTimeout(() => {
       newsletter.classList.remove("close-newsletter");
       newsletter.classList.add("open-newsletter");
-    }, 30000);
+    }, 600000);
   }
-
-  // setNewsletterDisplay(display) {
-  //   [].forEach.call(document.querySelectorAll('.newsletter-panel'), function(el) {
-  //     el.style.display = display;
-  //   });
-  // }
 
   componentDidMount() {
     window.onscroll = () => scrollFunction();
@@ -49,22 +41,18 @@ class App extends Component {
     var newsletter = document.getElementById("newsletter");
     var sticky = notif.offsetTop;
 
-    let that = this;
     function scrollFunction() {
       let prevTime = localStorage.getItem("current-time");
       
       if (prevTime) {
         var current = Date.now();
         var diff = current - prevTime;
-        // setTimeout(() => that.setNewsletterDisplay('block'), 6000 - diff);
         setTimeout(() => {
           newsletter.classList.remove("close-newsletter");
           newsletter.classList.add("open-newsletter");
-        }, 30000 - diff);
+        }, 600000 - diff);
       } else if (window.scrollY >= window.innerHeight / 3) {
         newsletter.classList.add("open-newsletter");
-        // that.setNewsletterDisplay('block');
-        // setTimeout(() => that.setNewsletterDisplay('block'), 6000);
       }
       
       if (window.pageYOffset > sticky) {
@@ -93,7 +81,7 @@ class App extends Component {
         <div className="hero-shot">
           <div className="layer">
             <div>
-              <img className="logo" src={logo}/>
+              <img className="logo" src={logo} alt="logo"/>
             </div>
             <h1 className="hello">Hello! I'm Kezia Suhendra</h1>
             <h2 className="consult">Consult, Design, and Develop Websites</h2>

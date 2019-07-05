@@ -72,8 +72,7 @@ p {
 }
 
 .layer {
-  background-color: rgba(0, 89, 141, 0.8);
-  top: 0;
+  background-color:rgba(1, 82, 135, 0.8);
   left: 0;
   right: 0;
   width: 100%;
@@ -156,7 +155,7 @@ p {
 }
 
 .footer {
-  background-color: #004a75;
+  background-color: #050328;
   padding: 30px;
 }
 
