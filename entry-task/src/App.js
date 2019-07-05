@@ -31,7 +31,7 @@ class App extends Component {
     setTimeout(() => {
       newsletter.classList.remove("close-newsletter");
       newsletter.classList.add("open-newsletter");
-    }, 600000);
+    }, 6000);
   }
 
   componentDidMount() {
@@ -50,7 +50,7 @@ class App extends Component {
         setTimeout(() => {
           newsletter.classList.remove("close-newsletter");
           newsletter.classList.add("open-newsletter");
-        }, 600000 - diff);
+        }, 6000 - diff);
       } else if (window.scrollY >= window.innerHeight / 3) {
         newsletter.classList.add("open-newsletter");
       }
@@ -156,7 +156,7 @@ class App extends Component {
 
         <div className="newsletter-panel" id="newsletter">
           <button className="newsletter-close" onClick={this.handleButtonNewsletterClick}>&times;</button>
-          <h1 className="newsletter-title">Get latest updates in web technologies</h1>
+          <h2 className="newsletter-title">Get latest updates in web technologies</h2>
           <p className="newsletter-desc">
             I write articles related to web technologies, such as design trends, development
             tools, UI/UX case studies and reviews, and more. Sign up to my newsletter to get
