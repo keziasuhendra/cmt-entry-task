@@ -23,22 +23,30 @@ class App extends Component {
   }
 
   handleButtonNewsletterClick = () => {
-    this.setNewsletterDisplay('none');
+    var newsletter = document.getElementById("newsletter");
+    newsletter.classList.remove("open-newsletter");
+    newsletter.classList.add("close-newsletter");
+    // this.setNewsletterDisplay('none');
     var currentTime = Date.now();
     localStorage.setItem("current-time", currentTime);
-    setTimeout(() => this.setNewsletterDisplay('none'), 30000);
+    // setTimeout(() => this.setNewsletterDisplay('none'), 6000);
+    setTimeout(() => {
+      newsletter.classList.remove("close-newsletter");
+      newsletter.classList.add("open-newsletter");
+    }, 30000);
   }
 
-  setNewsletterDisplay(display) {
-    [].forEach.call(document.querySelectorAll('.newsletter-panel'), function(el) {
-      el.style.display = display;
-    });
-  }
+  // setNewsletterDisplay(display) {
+  //   [].forEach.call(document.querySelectorAll('.newsletter-panel'), function(el) {
+  //     el.style.display = display;
+  //   });
+  // }
 
   componentDidMount() {
     window.onscroll = () => scrollFunction();
 
     var notif = document.getElementById("notification");
+    var newsletter = document.getElementById("newsletter");
     var sticky = notif.offsetTop;
 
     let that = this;
@@ -48,9 +56,15 @@ class App extends Component {
       if (prevTime) {
         var current = Date.now();
         var diff = current - prevTime;
-        setTimeout(() => that.setNewsletterDisplay('block'), 30000 - diff);
+        // setTimeout(() => that.setNewsletterDisplay('block'), 6000 - diff);
+        setTimeout(() => {
+          newsletter.classList.remove("close-newsletter");
+          newsletter.classList.add("open-newsletter");
+        }, 30000 - diff);
       } else if (window.scrollY >= window.innerHeight / 3) {
-        that.setNewsletterDisplay('block');
+        newsletter.classList.add("open-newsletter");
+        // that.setNewsletterDisplay('block');
+        // setTimeout(() => that.setNewsletterDisplay('block'), 6000);
       }
       
       if (window.pageYOffset > sticky) {
@@ -152,7 +166,7 @@ class App extends Component {
           </div>
         </div>
 
-        <div className="newsletter-panel">
+        <div className="newsletter-panel" id="newsletter">
           <button className="newsletter-close" onClick={this.handleButtonNewsletterClick}>&times;</button>
           <h1 className="newsletter-title">Get latest updates in web technologies</h1>
           <p className="newsletter-desc">

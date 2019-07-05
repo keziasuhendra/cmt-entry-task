@@ -224,9 +224,9 @@ p {
   height: auto;
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: -1000px;
   padding: 10px;
-  display: none;
+  display: block;
 }
 
 .newsletter-close {
@@ -278,11 +278,13 @@ p {
 
 .close-newsletter {
   transform: translate3d(0, 200%, 0);
-  transition: all 1s ease-out;
+  transition: all 2s ease-out;
 }
 
-.hide-newsletter {
-  display: none;
+.open-newsletter {
+  bottom: 0;
+  transform: translate3d(0, 0, 0);
+  transition: all 1s ease-out;
 }
 
 @media only screen and (min-width: 961px) {
