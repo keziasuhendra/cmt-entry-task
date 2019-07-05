@@ -10,7 +10,3 @@ To run this project, you need to clone this repository then install it locally u
 $ npm install
 $ npm start
 ```
-
-## Preview
-
-![Desktop Version](https://github.com/keziasuhendra/cmt-entry-task/blob/master/desktop-version.gif "Desktop Version")
