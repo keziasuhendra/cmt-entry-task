@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import logo from '../public/y-logo-white.png';
 import './App.css';
 
@@ -8,17 +7,16 @@ class App extends Component {
     super(props);
     this.state = {
       transClass: 'notification-panel',
-      hide: 'false',
-      cookieVisibility: 'true',
+      hide: 'false'
     };
   }
 
   handleButtonCookieClick = () => {
     if (this.state.transClass === 'notification-panel') {
       this.setState({
-        transClass: 'close-notif',
-        cookieVisibility: 'false'
+        transClass: 'close-notif'
       });
+      setTimeout(() => this.setState({transClass: 'hide-notif'}), 620);
     } else {
       this.setState({ transClass: 'notification-panel' });
     }
@@ -28,7 +26,6 @@ class App extends Component {
     this.setNewsletterDisplay('none');
     var currentTime = Date.now();
     localStorage.setItem("current-time", currentTime);
-    console.log("close");
     setTimeout(() => this.setNewsletterDisplay('none'), 30000);
   }
 
@@ -44,28 +41,10 @@ class App extends Component {
     var notif = document.getElementById("notification");
     var sticky = notif.offsetTop;
 
-    // function slideUp(el) {
-    //   var elem = document.querySelectorAll(el);
-    //   elem.style.transition = "all 2s ease-in-out";
-    //   elem.style.height = "0px";
-    // }
-    
-    // function slideDown(el) {
-    //   var elem = document.getElementById(el);
-    //   elem.style.transition = "all 2s ease-in-out";
-    //   elem.style.height = "auto";
-    // }
-    // let prevTime = localStorage.getItem("current-time");
-    // if (prevTime) {
-    //   var current = Date.now();
-    //   var diff = current - prevTime;
-    //   console.log("reload");
-    //   setTimeout(() => this.setNewsletterDisplay('block'), 30000 - diff);
-    // }
-
     let that = this;
     function scrollFunction() {
       let prevTime = localStorage.getItem("current-time");
+      
       if (prevTime) {
         var current = Date.now();
         var diff = current - prevTime;
@@ -73,8 +52,9 @@ class App extends Component {
       } else if (window.scrollY >= window.innerHeight / 3) {
         that.setNewsletterDisplay('block');
       }
+      
       if (window.pageYOffset > sticky) {
-        notif.classList.add("sticky")
+        notif.classList.add("sticky");
       } else {
          notif.classList.remove("sticky");
       }
@@ -84,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <div id="main-app">
-        <div className="notification-panel" id="notification">
+        <div className={this.state.transClass} id="notification">
           <center>
             <div className="notification-content">
               <p className="notification-desc">
@@ -92,8 +72,6 @@ class App extends Component {
                   understand our <a href="#" className="notification-link">Cookie Policy</a>, <a href="#" className="notification-link">Privacy Policy</a>, and our <a href="#" className="notification-link">Terms of Service</a>.
               </p>
               <button className="notification-button" onClick={this.handleButtonCookieClick}>Got it</button>
-              {/* <ReactCSSTransitionGroup transitionName="example">
-              </ReactCSSTransitionGroup> */}
             </div>
           </center>
         </div>

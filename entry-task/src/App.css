@@ -210,21 +210,11 @@ p {
 
 .close-notif {
   transform: translate3d(0, -100%, 0);
-  transition: .3s ease-in-out;
+  transition: all 1s ease-out;
 }
 
-.example-enter {
-  height: 0px;
-}
-
-.example-enter.example-enter-active {
-  height: 100px;
-  -webkit-transition: height .3s ease;
-}
-
-.example-leave.example-leave-active {
-  height: 0px;
-  -webkit-transition: height .3s ease;
+.hide-notif {
+  display: none;
 }
 
 .newsletter-panel {
@@ -284,6 +274,15 @@ p {
   font-size: 14px;
   padding: 10px;
   border: none;
+}
+
+.close-newsletter {
+  transform: translate3d(0, 200%, 0);
+  transition: all 1s ease-out;
+}
+
+.hide-newsletter {
+  display: none;
 }
 
 @media only screen and (min-width: 961px) {
