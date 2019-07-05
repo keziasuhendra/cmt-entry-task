@@ -1,53 +1,86 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import logo from '../public/y-logo-white.png';
 import './App.css';
+
+// const CSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+// const TransitionGroup = React.addons.TransitionGroup;
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      transClass: 'notification-panel',
+      hide: 'false',
+      cookieVisibility: 'true',
+    };
+  }
+
+  handleButtonCookieClick = () => {
+    if (this.state.transClass === 'notification-panel') {
+      this.setState({
+        transClass: 'close-notif',
+        cookieVisibility: 'false'
+      });
+    } else {
+      this.setState({ transClass: 'notification-panel' });
+    }
+  }
+
+  handleButtonNewsletterClick = () => {
+    this.setNewsletterDisplay('none');
+    var currentTime = Date.now();
+    localStorage.setItem("current-time", currentTime);
+    setTimeout(() => this.setNewsletterDisplay('block'), 60000);
+  }
+
+  setNewsletterDisplay(display) {
+    console.log('zxc');
+    [].forEach.call(document.querySelectorAll('.newsletter-panel'), function(el) {
+      el.style.display = display;
+    });
   }
 
   componentDidMount() {
-    window.onscroll = function() {myFunction()};
-      
+    window.onscroll = () => scrollFunction();
+
     var notif = document.getElementById("notification");
     var sticky = notif.offsetTop;
-      
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
+
+    // function slideUp(el) {
+    //   var elem = document.querySelectorAll(el);
+    //   elem.style.transition = "all 2s ease-in-out";
+    //   elem.style.height = "0px";
+    // }
+    
+    // function slideDown(el) {
+    //   var elem = document.getElementById(el);
+    //   elem.style.transition = "all 2s ease-in-out";
+    //   elem.style.height = "auto";
+    // }
+    let prevTime = localStorage.getItem("current-time");
+    if (prevTime) {
+      var current = Date.now();
+      var diff = current - prevTime;
+      setTimeout(() => this.setNewsletterDisplay('block'), 60000 - diff);
+    }
+
+    let that = this;
+    function scrollFunction() {
+      if (!prevTime && window.scrollY >= window.innerHeight / 3) {
+        that.setNewsletterDisplay('block');
+      }
+      if (window.pageYOffset > sticky) {
         notif.classList.add("sticky")
       } else {
          notif.classList.remove("sticky");
       }
     }
-
-    $(document).ready(function(){
-      $(".notification-button").click(function(){
-        $(".notification-panel").slideUp(1000);
-      });
-      // localStorage.setItem("hide","false");
-      // $(".newsletter-close").click(function(){
-      //   $(".newsletter-panel").slideToggle("slow");
-      //   localStorage.setItem("hide","true");
-      // });
-    });
-    
-    // $(window).scroll(function() {   
-    //   var session = this.localStorage.getItem("hide");
-    //   if(($(window).scrollTop() >= $(window).height() / 3) && (session == "true")) {
-    //     setTimeout(function() {
-    //      $(".newsletter-panel").css("display", "block");
-    //     localStorage.setItem("hide","false");
-    //     }, 30000);
-    //   } else if(($(window).scrollTop() >= $(window).height() / 3) && (session == "false")) {
-    //     $(".newsletter-panel").slideDown(1000);
-    //   }
-    // });
   }
+
   render() {
     return (
-      <div>
+      <div id="main-app">
         <div className="notification-panel" id="notification">
           <center>
             <div className="notification-content">
@@ -55,7 +88,9 @@ class App extends Component {
                   By accessing and using this website, you acknowledge that you have read and
                   understand our <a href="#" className="notification-link">Cookie Policy</a>, <a href="#" className="notification-link">Privacy Policy</a>, and our <a href="#" className="notification-link">Terms of Service</a>.
               </p>
-              <button className="notification-button">Got it</button>
+              <button className="notification-button" onClick={this.handleButtonCookieClick}>Got it</button>
+              {/* <CSSTransitionGroup transitionName="example">
+              </CSSTransitionGroup> */}
             </div>
           </center>
         </div>
@@ -137,7 +172,7 @@ class App extends Component {
         </div>
 
         <div className="newsletter-panel">
-          <button className="newsletter-close">&times;</button>
+          <button className="newsletter-close" onClick={this.handleButtonNewsletterClick}>&times;</button>
           <h1 className="newsletter-title">Get latest updates in web technologies</h1>
           <p className="newsletter-desc">
             I write articles related to web technologies, such as design trends, development

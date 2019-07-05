@@ -172,15 +172,11 @@ p {
   height: auto;
   position: static;
   top: 0;
-  left: 0;
-  right: 0;
 }
 
 .sticky {
  position: fixed;
  top: 0;
- left: 0;
- right: 0;
  width: 100%;
 }
 
@@ -212,6 +208,25 @@ p {
  width: 100px;
 }
 
+.close-notif {
+  transform: translate3d(0, -100%, 0);
+  transition: .3s ease-in-out;
+}
+
+.example-enter {
+  height: 0px;
+}
+
+.example-enter.example-enter-active {
+  height: 100px;
+  -webkit-transition: height .3s ease;
+}
+
+.example-leave.example-leave-active {
+  height: 0px;
+  -webkit-transition: height .3s ease;
+}
+
 .newsletter-panel {
   background-color: rgba(0, 123, 193, 0.9);
   max-width: 640px;
@@ -221,7 +236,7 @@ p {
   left: 0;
   bottom: 0;
   padding: 10px;
-  /* display: none; */
+  display: none;
 }
 
 .newsletter-close {
