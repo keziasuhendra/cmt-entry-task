@@ -31,7 +31,7 @@ class App extends Component {
     setTimeout(() => {
       newsletter.classList.remove("close-newsletter");
       newsletter.classList.add("open-newsletter");
-    }, 6000);
+    }, 600000);
   }
 
   componentDidMount() {
@@ -50,7 +50,7 @@ class App extends Component {
         setTimeout(() => {
           newsletter.classList.remove("close-newsletter");
           newsletter.classList.add("open-newsletter");
-        }, 6000 - diff);
+        }, 600000 - diff);
       } else if (window.scrollY >= window.innerHeight / 3) {
         newsletter.classList.add("open-newsletter");
       }
