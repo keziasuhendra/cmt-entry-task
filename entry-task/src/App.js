@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import logo from '../public/y-logo-white.png';
 import './App.css';
-
-// const CSSTransitionGroup = React.addons.CSSTransitionGroup;
-
-// const TransitionGroup = React.addons.TransitionGroup;
 
 class App extends Component {
   constructor(props) {
@@ -31,11 +28,11 @@ class App extends Component {
     this.setNewsletterDisplay('none');
     var currentTime = Date.now();
     localStorage.setItem("current-time", currentTime);
-    setTimeout(() => this.setNewsletterDisplay('block'), 60000);
+    console.log("close");
+    setTimeout(() => this.setNewsletterDisplay('none'), 30000);
   }
 
   setNewsletterDisplay(display) {
-    console.log('zxc');
     [].forEach.call(document.querySelectorAll('.newsletter-panel'), function(el) {
       el.style.display = display;
     });
@@ -58,16 +55,22 @@ class App extends Component {
     //   elem.style.transition = "all 2s ease-in-out";
     //   elem.style.height = "auto";
     // }
-    let prevTime = localStorage.getItem("current-time");
-    if (prevTime) {
-      var current = Date.now();
-      var diff = current - prevTime;
-      setTimeout(() => this.setNewsletterDisplay('block'), 60000 - diff);
-    }
+    // let prevTime = localStorage.getItem("current-time");
+    // if (prevTime) {
+    //   var current = Date.now();
+    //   var diff = current - prevTime;
+    //   console.log("reload");
+    //   setTimeout(() => this.setNewsletterDisplay('block'), 30000 - diff);
+    // }
 
     let that = this;
     function scrollFunction() {
-      if (!prevTime && window.scrollY >= window.innerHeight / 3) {
+      let prevTime = localStorage.getItem("current-time");
+      if (prevTime) {
+        var current = Date.now();
+        var diff = current - prevTime;
+        setTimeout(() => that.setNewsletterDisplay('block'), 30000 - diff);
+      } else if (window.scrollY >= window.innerHeight / 3) {
         that.setNewsletterDisplay('block');
       }
       if (window.pageYOffset > sticky) {
@@ -89,8 +92,8 @@ class App extends Component {
                   understand our <a href="#" className="notification-link">Cookie Policy</a>, <a href="#" className="notification-link">Privacy Policy</a>, and our <a href="#" className="notification-link">Terms of Service</a>.
               </p>
               <button className="notification-button" onClick={this.handleButtonCookieClick}>Got it</button>
-              {/* <CSSTransitionGroup transitionName="example">
-              </CSSTransitionGroup> */}
+              {/* <ReactCSSTransitionGroup transitionName="example">
+              </ReactCSSTransitionGroup> */}
             </div>
           </center>
         </div>
